@@ -1,8 +1,8 @@
 {
-  "name": "easyrtc_server_example",
-  "version": "0.1.6",
-  "author": "Priologic Software Inc. <info@priologic.com> (http://priologic.com/)",
-  "description": "Simple EasyRTC server example which includes EasyRTC, Express, and Socket.io",
+  "name": "chatRoom",
+  "version": "0.1.0",
+  "author": "Dingkang Li, Wenjing Zhao, Si Zhang",
+  "description": "A ChatRoom developed by Node.js, Express, Socket.io, EasyRTC, etc.",
   "private": true,
   "scripts": {
     "start": "node server.js"
