@@ -1,0 +1,10 @@
+html
+  head
+    title Chat Room
+    link(rel='stylesheet' href='css/my.css')
+    link(rel='stylesheet' href='js/my.js')
+  body
+    form(action='/join', method='post')
+      input(name='username', value='', type='text', placeholder='I')
+      input(name='roomname', value='', type='text', placeholder='Room')
+      input(type='submit', value='Join')
