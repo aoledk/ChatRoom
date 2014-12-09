@@ -1,10 +1,20 @@
 html
   head
     title Chat Room
-    link(rel='stylesheet' href='css/my.css')
-    link(rel='stylesheet' href='js/my.js')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='styelsheet', href='css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='css/index.css')
   body
-    form(action='/join', method='post')
-      input(name='username', value='', type='text', placeholder='I')
-      input(name='roomname', value='', type='text', placeholder='Room')
-      input(type='submit', value='Join')
+    form(action='/join', method='post', class='form-inline', role='form')
+      .form-group
+        label(class='sr-only' for='username') Username
+        input(type='text', class='form-control', id='username' name='username', placeholder='Who am I ?')
+      .form-group
+        .input-group
+          label(class='sr-only' for='roomname') Roomname
+          .input-group-addon @
+          input(type='text', class='form-control', id='roomname', name='roomname', placeholder='Which Room ?')
+      button(type='submit', class='btn btn-primary') Join
+    script(type='text/javascript', src='js/jquery-1.11.1.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/index.js')
