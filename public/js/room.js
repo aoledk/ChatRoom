@@ -115,7 +115,7 @@ function performCall(easyrtcid) {
 }
 
 
-function sendMessage (e) {
+function sendMessage () {
   var msg = $.trim($('#message').val());
   console.log(msg);
   if(msg && msg != "") {
@@ -126,4 +126,9 @@ function sendMessage (e) {
       }
     }
   }
+}
+
+function leaveRoom () {
+  easyrtc.leaveRoom(roomname, null);
+  window.location.replace('/exit');
 }

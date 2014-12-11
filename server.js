@@ -20,11 +20,25 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
+app.get('/exit', function(req, res) {
+	res.render('index');
+});
+
+app.get('/join', function(req, res) {
+	res.render('index');
+});
+
 app.post('/join', function(req, res) {
 	var username = req.body.username;
 	var roomname = req.body.roomname;
 
-	res.render('room', {username: username, roomname: roomname});
+	if (username != '' && roomname != '') {
+		res.render('room', {username: username, roomname: roomname});	
+	}
+	else {
+		res.render('index');
+	}
+	
 });
 
 // Start Express http server on port 8080
