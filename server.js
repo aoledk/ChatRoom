@@ -20,10 +20,6 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
-app.get('/exit', function(req, res) {
-	res.render('index');
-});
-
 app.get('/join', function(req, res) {
 	res.render('index');
 });

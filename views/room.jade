@@ -6,22 +6,21 @@ html
     link(rel='styelsheet', href='css/bootstrap-theme.min.css')
     link(rel='stylesheet', href='css/room.css')
   body
-    h1= username
-    p Not Ready
-    #container
-      #videoChat
-        video(id='self', width='300', height='200', muted='muted', volume='0')
-        video(id='caller0', width='300', height='200')
-        video(id='caller1', width='300', height='200')
-        video(id='caller2', width='300', height='200')
-      #otherClients
-      #textChat
-        #records
-        #sendBox
-          input(type='text', id='message')
-          button(id='sendBtn', onclick='sendMessage()') 发送
-          button(id='hangBtn', onclick='hang()') 结束
-          button(id='leavBtn', onclick='leaveRoom()') 离开房间
+    .container
+      h1= username
+      .row
+        #videoChat.col-md-8
+          video(id='self', width='300', height='200', muted='muted', volume='0')
+          video(id='caller0', width='300', height='200', muted='muted', volume='0')
+          video(id='caller1', width='300', height='200', muted='muted', volume='0')
+          video(id='caller2', width='300', height='200', muted='muted', volume='0')
+        #textChat.col-md-4
+          #records
+          #sendBox
+            input(type='text', id='message')
+            button(id='sendBtn', onclick='sendMessage()') 发送
+            button(id='hangBtn', onclick='hang()') 结束
+            button(id='leavBtn', onclick='leaveRoom()') 离开房间
     script(type='text/javascript', src='/socket.io/socket.io.js')
     script(type='text/javascript', src='/easyrtc/easyrtc.js')
     script(type='text/javascript', src='js/jquery-1.11.1.min.js')

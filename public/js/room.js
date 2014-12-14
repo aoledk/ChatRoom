@@ -29,7 +29,7 @@ $(document).ready(function() {
   easyrtc.setPeerListener(messageListener);
   easyrtc.setUsername(username);
 
-  easyrtc.easyApp('Company_Chat_Line', 'self', ['caller0', 'caller1', 'caller2'],
+  easyrtc.easyApp('ChatRoom', 'self', ['caller0', 'caller1', 'caller2'],
     function(myId) {
       console.log("My easyrtcid is " + myId);
       console.log("My username is " + easyrtc.idToName(myId));
@@ -76,11 +76,15 @@ function callEverybodyElse (roomName, otherPeople) {
 
 
 function messageListener(easyrtcid, msgType, content) {
+  showMessage(easyrtcid, content);
+}
+
+
+function showMessage(easyrtcid, content) {
   var html = '<p>From ' + easyrtc.idToName(easyrtcid) + ', data : ' + content + '</p>';
   //var html = '<p>Test Message</p>';
   $('#records').append(html);
 }
-
 
 function loggedInListener(roomName, otherPeers) {
   console.log(roomName);
@@ -117,12 +121,14 @@ function performCall(easyrtcid) {
 
 function sendMessage () {
   var msg = $.trim($('#message').val());
+  $('#message').val('');
   console.log(msg);
-  if(msg && msg != "") {
+  if(msg && msg != '') {
+    showMessage(easyrtc.myEasyrtcid, msg);
     for(var i = 0; i < maxCallers; i++ ) {
       var easyrtcid = easyrtc.getIthCaller(i);
-      if(easyrtcid && easyrtcid != "") {
-        easyrtc.sendPeerMessage(easyrtcid, "im",  msg);
+      if(easyrtcid && easyrtcid != '') {
+        easyrtc.sendPeerMessage(easyrtcid, 'im',  msg);
       }
     }
   }
@@ -130,5 +136,5 @@ function sendMessage () {
 
 function leaveRoom () {
   easyrtc.leaveRoom(roomname, null);
-  window.location.replace('/exit');
+  window.location.replace('/');
 }
